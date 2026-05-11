@@ -28,3 +28,19 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
+
+
+const { app, BrowserWindow } = require('electron')
+
+function createWindow() {
+
+  const win = new BrowserWindow({
+    kiosk: true,
+    fullscreen: true,
+    autoHideMenuBar: true
+  })
+
+  win.loadURL('https://full-screen-cyan.vercel.app/query-page.html')
+}
+
+app.whenReady().then(createWindow)
